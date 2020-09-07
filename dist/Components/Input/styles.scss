@@ -3,11 +3,9 @@
 .muk_input_wrapper {
     .muk_input_container {
         display: flex;
-        width: 100%;
         border: 1px solid $dark;
-        background-color: $white;
         transition: box-shadow 200ms ease-in-out;
-
+        
         &.muk_input_square_radius {
             border-radius: $square_radius;
         }
@@ -20,10 +18,11 @@
 
         &.muk_input_password {
             display: grid;
+            width: 100%;
             grid-template-columns: 1fr;
             grid-template-columns: 1fr 30px;
         }
-
+        
         &:focus-within {
             box-shadow: 1px 1px 5px $dark_t;
         }

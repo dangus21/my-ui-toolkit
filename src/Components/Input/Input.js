@@ -6,8 +6,10 @@ import { ICON_SIZE } from 'Components/constants'
 import './styles.scss'
 
 const propTypes = {
-    iconProps: types.object,
+    onChange: types.func,
+    placeholder: types.string,
     inputProps: types.object,
+    iconProps: types.object,
     wrapperProps: types.object,
     password: types.bool,
     /** { square | basic (default) | round } */
@@ -15,11 +17,20 @@ const propTypes = {
 }
 
 const defaultProps = {
+    placeholder: 'Insert Text',
     password: false,
     radius: 'basic',
+    wrapperProps: {},
+    inputProps: {},
+    iconProps: {},
 }
 
 const Input = (props) => {
+    const {
+        inputProps: { inputOnChange, ...restInputProps },
+        iconProps: { iconOnClick, ...restIconProps },
+    } = props
+
     const [visible, setVisible] = useState(false)
     const isPW = () => {
         if (!props.password) {
@@ -27,6 +38,7 @@ const Input = (props) => {
         }
         return visible ? 'text' : 'password'
     }
+
     return (
         <div className="muk_input_wrapper" {...props.wrapperProps}>
             <div
@@ -38,11 +50,22 @@ const Input = (props) => {
                     }
                 )}
             >
-                <input type={isPW()} {...props.inputProps} />
+                <input
+                    placeholder={props.placeholder}
+                    type={isPW()}
+                    onChange={(event) => {
+                        inputOnChange && inputOnChange(event)
+                        props.onChange && props.onChange(event)
+                    }}
+                    {...restInputProps}
+                />
                 {props.password && (
                     <i
-                        {...props.iconProps}
-                        onClick={() => setVisible(!visible)}
+                        {...restIconProps}
+                        onClick={(event) => {
+                            setVisible(!visible)
+                            iconOnClick && iconOnClick(event)
+                        }}
                     >
                         {visible ? (
                             <VisibilityOutlined
