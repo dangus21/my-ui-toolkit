@@ -1,0 +1,47 @@
+@import "src/Components/globals";
+
+.muk_input_wrapper {
+    .muk_input_container {
+        display: flex;
+        border: 1px solid $dark;
+        transition: box-shadow 200ms ease-in-out;
+        
+        &.muk_input_square_radius {
+            border-radius: $square_radius;
+        }
+        &.muk_input_basic_radius {
+            border-radius: $basic_radius;
+        }
+        &.muk_input_round_radius {
+            border-radius: $round_radius;
+        }
+
+        &.muk_input_password {
+            display: grid;
+            width: 100%;
+            grid-template-columns: 1fr;
+            grid-template-columns: 1fr 30px;
+        }
+        
+        &:focus-within {
+            box-shadow: 1px 1px 5px $dark_t;
+        }
+        input {
+            width: 100%;
+            border: 0;
+            padding: 5px;
+            margin-left: 5px;
+            border-radius: inherit;
+            text-overflow: ellipsis;
+            &:focus {
+                outline: none;
+            }
+        }
+        i {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+    }
+}
