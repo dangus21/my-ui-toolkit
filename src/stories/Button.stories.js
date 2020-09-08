@@ -16,4 +16,4 @@ const ButtonTemplate = (args) => (
     <MUKButton {...args} />
 );
 
-export const standard = ButtonTemplate.bind({});
+export const button = ButtonTemplate.bind({});

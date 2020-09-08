@@ -26,6 +26,7 @@ const defaultProps = {
     pointer: false,
     round: false,
     spaced: false,
+    border: false,
     type: 'basic',
     size: 'medium',
 };
