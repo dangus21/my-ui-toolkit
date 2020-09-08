@@ -7,12 +7,10 @@
     border: 1px solid $dark;
     background-color: $white;
     transition: box-shadow 200ms ease-in-out;
+    border-radius: map-get($radius_sizes, "basic");
 
     &--square_radius {
         border-radius: map-get($radius_sizes, "square");
-    }
-    &--basic_radius {
-        border-radius: map-get($radius_sizes, "basic");
     }
     &--round_radius {
         border-radius: map-get($radius_sizes, "round");

@@ -18,8 +18,7 @@ const propTypes = {
     password: types.bool,
     showText: types.bool,
     value: types.string,
-    /** { square | basic (default) | round } */
-    radius: types.oneOf(['square', 'basic', 'round']),
+    radius: types.oneOf(['square', 'round']),
 };
 
 const defaultProps = {

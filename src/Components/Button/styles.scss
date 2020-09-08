@@ -1,7 +1,20 @@
 @import "src/Components/globals";
-
+@use "sass:map"
 .muk_button {
-    .pointer{
+    border: none;
+    &--pointer {
         @include pointer;
+    }
+    &--border {
+        border: 1px solid $dark;
+    }
+    &--round {
+        border-radius: map-get($radius_sizes, "basic");
+    }
+    &--square_radius {
+        border-radius: map-get($radius_sizes, "square");
+    }
+    &--round_radius {
+        border-radius: map-get($radius_sizes, "round");
     }
 }
