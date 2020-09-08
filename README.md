@@ -1,3 +1,3 @@
-# My UI Kit, or MUK for short
+# My UI Toolkit, or MUT for short
 
-This is my ui kit, a highly customizable react ui kit that you can make yours.
+This is my ui toolkit, a highly customizable react ui toolkit that you can make yours.
