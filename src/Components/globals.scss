@@ -1,6 +1,9 @@
 $white: #fff;
 $dark: #737373;
 $dark_t: #73737381;
-$square_radius: 0;
-$basic_radius: 5px;
-$round_radius: 50px;
+
+$radius_sizes: ("square": 0, "basic": 5px, "round": 50px);
+
+@mixin pointer {
+    cursor: pointer;
+}

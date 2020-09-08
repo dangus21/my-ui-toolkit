@@ -13,34 +13,50 @@ module.exports = {
         "prettier/react",
     ],
     parserOptions: {
-        "useJSXTextNode": true,
-        "ecmaVersion": 6,
-        "sourceType": "module",
-        "ecmaFeatures": {
-            "modules": true,
-            "jsx": true
+        useJSXTextNode: true,
+        ecmaVersion: 6,
+        sourceType: "module",
+        ecmaFeatures: {
+            modules: true,
+            jsx: true
         },
     },
     plugins: [
-        "react",
-        "@typescript-eslint",
         "babel",
         "sort-imports-es6-autofix",
-        "react-hooks",
-        "flowtype",
-        "unused-imports",,
         "prettier",
-
+        "react-hooks",
+        "react",
+        "unused-imports",
     ],
     rules: {
-        "indent": ["error", 4],
         "no-duplicate-imports": 2,
+        'prettier/prettier': [
+            'error',
+            {
+                jsxBracketSameLine: true,
+                printWidth: 60,
+                singleQuote: true,
+                trailingComma: 'es5',
+                tabWidth: 4,
+            },
+            { usePrettierrc: false },
+        ],
+        'sort-imports-es6-autofix/sort-imports-es6': [
+            2,
+            {
+                ignoreCase: false,
+                ignoreMemberSort: false,
+                memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
+            },
+        ],
+        "prefer-template": "error",
         "no-unused-vars": ["error", { vars: "all", args: "after-used", ignoreRestSiblings: false }],
+        "indent": ["error", 4],
         "no-undefined": "error",
         "react/jsx-no-undef": 2,
-        "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
-        "react-hooks/exhaustive-deps": "warn", // Checks effect dependencies
-        // "unused-imports/no-unused-imports": "error",
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn",
         "unused-imports/no-unused-vars": [
             "warn",
             { vars: "all", varsIgnorePattern: "^_", args: "after-used", argsIgnorePattern: "^_" },

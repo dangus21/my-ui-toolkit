@@ -1,0 +1,7 @@
+@import "src/Components/globals";
+
+.muk_button {
+    .pointer{
+        @include pointer;
+    }
+}
