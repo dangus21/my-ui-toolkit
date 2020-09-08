@@ -1,4 +1,4 @@
-import { Input as MUKInput } from './Input'
-import { Button as MUKButton } from './Button'
+import { Button as MUKButton } from './Button';
+import { Input as MUKInput } from './Input';
 
-export { MUKInput, MUKButton }
+export { MUKInput, MUKButton };

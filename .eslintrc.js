@@ -35,7 +35,7 @@ module.exports = {
             'error',
             {
                 jsxBracketSameLine: true,
-                printWidth: 60,
+                printWidth: 50,
                 singleQuote: true,
                 trailingComma: 'es5',
                 tabWidth: 4,

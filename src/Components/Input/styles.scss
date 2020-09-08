@@ -9,6 +9,10 @@
     transition: box-shadow 200ms ease-in-out;
     border-radius: map-get($radius_sizes, "basic");
 
+    &:focus-within {
+        box-shadow: 1px 1px 5px $dark_t;
+    }
+
     &--square_radius {
         border-radius: map-get($radius_sizes, "square");
     }
@@ -20,10 +24,6 @@
         display: grid;
         grid-template-columns: 1fr;
         grid-template-columns: 1fr 30px;
-    }
-
-    &:focus-within {
-        box-shadow: 1px 1px 5px $dark_t;
     }
 
     input {

@@ -1,22 +1,19 @@
 /* eslint-disable react/prop-types */
-import React from 'react'
-import { actions } from '@storybook/addon-actions'
-import { MUKButton } from 'Components'
+import { MUKButton } from 'Components';
+import React from 'react';
 
 export default {
     title: 'Button',
     component: MUKButton,
-    argTypes: {},
-}
+    argTypes: {
+        children: { control: { disable: false } },
+        pointer: { control: { disable: false } },
+        border: { control: { disable: false } },
+    },
+};
 
-const InputTemplate = ({ wrapperProps, inputProps, iconProps, ...args }) => (
-    <MUKButton
-        wrapperProps={wrapperProps}
-        inputProps={inputProps}
-        iconProps={iconProps}
-        {...actions('onClick')}
-        {...args}
-    />
-)
+const ButtonTemplate = (args) => (
+    <MUKButton {...args} />
+);
 
-export const standard = InputTemplate.bind({})
+export const standard = ButtonTemplate.bind({});
