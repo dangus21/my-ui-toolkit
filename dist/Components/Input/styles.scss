@@ -1,47 +1,49 @@
 @import "src/Components/globals";
+@use "sass:map";
 
-.muk_input_wrapper {
-    .muk_input_container {
+.muk_input {
+    display: flex;
+    width: 100%;
+    border: 1px solid $dark;
+    background-color: $white;
+    transition: box-shadow 200ms ease-in-out;
+    border-radius: map-get($radius_sizes, "basic");
+
+    &:focus-within {
+        box-shadow: 1px 1px 5px $dark_t;
+    }
+
+    &--square_radius {
+        border-radius: map-get($radius_sizes, "square");
+    }
+    &--round_radius {
+        border-radius: map-get($radius_sizes, "round");
+    }
+
+    &--password {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 30px;
+    }
+
+    input {
+        width: 100%;
+        border: 0;
+        padding: 5px;
+        margin-left: 5px;
+        background-color: transparent;
+        border-radius: inherit;
+        text-overflow: ellipsis;
+        &:focus {
+            outline: none;
+        }
+    }
+
+    i {
         display: flex;
-        border: 1px solid $dark;
-        transition: box-shadow 200ms ease-in-out;
-        
-        &.muk_input_square_radius {
-            border-radius: $square_radius;
-        }
-        &.muk_input_basic_radius {
-            border-radius: $basic_radius;
-        }
-        &.muk_input_round_radius {
-            border-radius: $round_radius;
-        }
-
-        &.muk_input_password {
-            display: grid;
-            width: 100%;
-            grid-template-columns: 1fr;
-            grid-template-columns: 1fr 30px;
-        }
-        
-        &:focus-within {
-            box-shadow: 1px 1px 5px $dark_t;
-        }
-        input {
-            width: 100%;
-            border: 0;
-            padding: 5px;
-            margin-left: 5px;
-            border-radius: inherit;
-            text-overflow: ellipsis;
-            &:focus {
-                outline: none;
-            }
-        }
-        i {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-        }
+        justify-content: center;
+        align-items: center;
+        color: $dark;
+        cursor: pointer;
     }
 }

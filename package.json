@@ -1,15 +1,20 @@
 {
-  "name": "my-ui-kit",
+  "name": "myuikit",
   "version": "0.1.0",
-  "private": false,
   "main": "dist/index.js",
+  "author": "angus miguel",
+  "license": "ISC",
+    "np": {
+      "yarn": false,
+      "contents": "dist"
+    },
   "files": [
     "dist",
     "README.md"
   ],
   "repository": {
     "type": "git",
-    "url": "URL_OF_YOUR_REPOSITORY"
+    "url": "https://github.com/dangus21/myuikit/"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
