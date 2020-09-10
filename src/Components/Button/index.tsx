@@ -12,18 +12,19 @@ export interface IProps {
     variant?: 'primary' | 'secondary' | 'success' | 'error' | 'warn',
 }
 
-export const MUTButton = ({
-    children = 'Button text',
-    pointer = false,
-    disabled = false,
-    border = false,
-    type = 'basic',
-    size = 'small',
-    variant = 'primary',
-    ...otherProps
-}: IProps) => {
-
+export const MUTButton = (props: IProps) => {
     const base = 'mut_button';
+
+    const {
+        children = 'Button text',
+        pointer = false,
+        disabled = false,
+        border = false,
+        type = 'basic',
+        size = 'small',
+        variant = 'primary',
+        ...otherProps
+    } = props;
 
     return (
         <button
@@ -44,3 +45,13 @@ export const MUTButton = ({
         </button>
     );
 };
+
+MUTButton.defaultProps = {
+    children: 'Button text',
+    pointer: false,
+    disabled: false,
+    border: false,
+    type: 'basic',
+    size: 'small',
+    variant: 'primary',
+}
