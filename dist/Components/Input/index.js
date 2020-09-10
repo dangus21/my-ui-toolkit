@@ -7,8 +7,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Input = void 0;
 
-require("./styles.scss");
-
 var _constants = require("Components/constants");
 
 var _icons = require("@material-ui/icons");
@@ -18,6 +16,8 @@ var _react = _interopRequireWildcard(require("react"));
 var _classNames = _interopRequireDefault(require("class-names"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _stylesModule = _interopRequireDefault(require("./styles.module.scss"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -55,7 +55,7 @@ var propTypes = {
   password: _propTypes.default.bool,
   showText: _propTypes.default.bool,
   value: _propTypes.default.string,
-  radius: _propTypes.default.oneOf(['square', 'round'])
+  radius: _propTypes.default.oneOf(['square', 'basic', 'round'])
 };
 var defaultProps = {
   placeholder: 'Insert Text',
@@ -69,7 +69,8 @@ var defaultProps = {
 var base = 'muk_input';
 
 var Input = function Input(props) {
-  var _props$inputProps = props.inputProps,
+  var wrapperProps = props.wrapperProps,
+      _props$inputProps = props.inputProps,
       inputOnChange = _props$inputProps.inputOnChange,
       restInputProps = _objectWithoutProperties(_props$inputProps, ["inputOnChange"]),
       _props$iconProps = props.iconProps,
@@ -82,7 +83,7 @@ var Input = function Input(props) {
       setVisible = _useState2[1];
 
   var isPW = function isPW() {
-    if (!props.password) {
+    if (!props.password || props.showText) {
       return 'text';
     }
 
@@ -97,9 +98,10 @@ var Input = function Input(props) {
     return visible;
   };
 
+  console.log(isPW());
   return /*#__PURE__*/_react.default.createElement("div", _extends({
-    className: (0, _classNames.default)(base, "".concat(base, "--").concat(props.radius, "_radius"), _defineProperty({}, "".concat(base, "--password"), props.password))
-  }, props.wrapperProps), /*#__PURE__*/_react.default.createElement("input", _extends({
+    className: (0, _classNames.default)(_stylesModule.default[base], _stylesModule.default["".concat(base, "--").concat(props.radius, "--radius")], _defineProperty({}, _stylesModule.default["".concat(base, "--password")], props.password))
+  }, wrapperProps), /*#__PURE__*/_react.default.createElement("input", _extends({
     placeholder: props.placeholder,
     type: isPW(),
     value: props.value,
@@ -107,13 +109,13 @@ var Input = function Input(props) {
       inputOnChange && inputOnChange(event);
       props.change && props.change(event);
     }
-  }, restInputProps)), props.password && /*#__PURE__*/_react.default.createElement("i", _extends({}, restIconProps, {
+  }, restInputProps)), props.password && /*#__PURE__*/_react.default.createElement("i", _extends({
     onClick: function onClick(event) {
       setVisible(!visible);
       props.click && props.click(event);
       iconOnClick && iconOnClick(event);
     }
-  }), showPWText() ? /*#__PURE__*/_react.default.createElement(_icons.VisibilityOutlined, {
+  }, restIconProps), showPWText() ? /*#__PURE__*/_react.default.createElement(_icons.VisibilityOutlined, {
     style: {
       fontSize: _constants.ICON_SIZE
     }

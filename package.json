@@ -8,10 +8,6 @@
     "yarn": false,
     "contents": "dist"
   },
-  "files": [
-    "dist",
-    "README.md"
-  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/dangus21/my-ui-toolkit/"

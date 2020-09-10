@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.withPassword = exports.withWrapperProps = exports.standard = exports.default = void 0;
 
-var _Components = require("Components");
+var _index = require("index");
 
 var _addonActions = require("@storybook/addon-actions");
 
@@ -21,11 +21,11 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 
 var _default = {
   title: 'Input',
-  component: _Components.MUKInput,
+  component: _index.MUKInput,
   argTypes: {
     value: {
       control: {
-        disable: true
+        disable: false
       }
     },
     placeholder: {
@@ -83,7 +83,7 @@ var InputTemplate = function InputTemplate(_ref) {
       iconProps = _ref.iconProps,
       args = _objectWithoutProperties(_ref, ["wrapperProps", "inputProps", "iconProps"]);
 
-  return /*#__PURE__*/_react.default.createElement(_Components.MUKInput, _extends({
+  return /*#__PURE__*/_react.default.createElement(_index.MUKInput, _extends({
     wrapperProps: wrapperProps,
     inputProps: inputProps,
     iconProps: iconProps
