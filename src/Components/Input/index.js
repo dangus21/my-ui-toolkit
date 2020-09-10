@@ -18,7 +18,11 @@ const propTypes = {
     password: types.bool,
     showText: types.bool,
     value: types.string,
-    radius: types.oneOf(['square', 'round']),
+    radius: types.oneOf([
+        'square',
+        'basic',
+        'round',
+    ]),
 };
 
 const defaultProps = {
@@ -35,8 +39,14 @@ const base = 'muk_input';
 
 export const Input = (props) => {
     const {
-        inputProps: { inputOnChange, ...restInputProps },
-        iconProps: { iconOnClick, ...restIconProps },
+        inputProps: {
+            inputOnChange,
+            ...restInputProps
+        },
+        iconProps: {
+            iconOnClick,
+            ...restIconProps
+        },
     } = props;
 
     const [visible, setVisible] = useState(false);
@@ -70,8 +80,10 @@ export const Input = (props) => {
                 type={isPW()}
                 value={props.value}
                 onChange={(event) => {
-                    inputOnChange && inputOnChange(event);
-                    props.change && props.change(event);
+                    inputOnChange &&
+                        inputOnChange(event);
+                    props.change &&
+                        props.change(event);
                 }}
                 {...restInputProps}
             />
@@ -80,8 +92,10 @@ export const Input = (props) => {
                     {...restIconProps}
                     onClick={(event) => {
                         setVisible(!visible);
-                        props.click && props.click(event);
-                        iconOnClick && iconOnClick(event);
+                        props.click &&
+                            props.click(event);
+                        iconOnClick &&
+                            iconOnClick(event);
                     }}>
                     {showPWText() ? (
                         <VisibilityOutlined

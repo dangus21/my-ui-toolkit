@@ -6,6 +6,7 @@ import types from 'prop-types';
 const propTypes = {
     children: types.node,
     pointer: types.bool,
+    disabled: types.bool,
     border: types.bool,
     type: types.oneOf([
         'square',
@@ -19,33 +20,56 @@ const propTypes = {
         'extra',
         'jumbo',
     ]),
+    variant: types.oneOf([
+        'error',
+        'warn',
+        'primary',
+        'secondary',
+    ]),
 };
 
 const defaultProps = {
     children: 'Button text',
     pointer: false,
-    round: false,
-    spaced: false,
+    disabled: false,
     border: false,
     type: 'basic',
     size: 'medium',
+    variant: 'primary',
 };
 
 const base = 'muk_button';
 
 export const Button = (props) => {
+    const {
+        children,
+        pointer,
+        disabled,
+        border,
+        type,
+        size,
+        variant,
+        ...otherProps
+    } = props;
+
     return (
         <button
             className={cn(
                 base,
-                `${base}--${props.type}`,
-                `${base}--${props.size}`,
+                `${base}--type--${type}`,
+                `${base}--size--${size}`,
+                `${base}--${variant}`,
                 {
-                    [`${base}--pointer`]: props.pointer,
-                    [`${base}--border`]: props.border,
+                    [`${base}--pointer`]: pointer,
+                    [`${base}--border`]:
+                        border && !disabled,
+                    [`${base}--disabled--border`]:
+                        border && disabled,
+                    [`${base}--disabled`]: disabled,
                 }
-            )}>
-            {props.children}
+            )}
+            {...otherProps}>
+            {children}
         </button>
     );
 };

@@ -8,11 +8,7 @@
     text-align: center;
     border-radius: map-get($radius_sizes, "basic");
     &:active {
-        box-shadow: 0 0 0 1px $dark;
-        overflow: hidden;
-    }
-    &:focus {
-        outline: none;
+        background-color: ;
     }
     &--pointer {
         @include pointer;
@@ -21,7 +17,6 @@
         border: 1px solid $dark;
         &:active {
             box-shadow: 1px 1px 5px $dark_t;
-            overflow: hidden;
         }
     }
     &--small{

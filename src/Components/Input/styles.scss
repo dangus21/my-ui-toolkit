@@ -1,20 +1,22 @@
-@import "src/Components/globals";
 @use "sass:map";
+@import "src/Components/globals";
 
 .muk_input {
     display: flex;
     width: 100%;
-    border: 1px solid $dark;
-    background-color: $white;
-    transition: box-shadow 200ms ease-in-out;
-    border-radius: map-get($radius_sizes, "basic");
+    border: 1px solid map-get($colors, "dark");
+    background-color: map-get($colors, "white");
+    @include boxshadow_transition;
 
     &:focus-within {
-        box-shadow: 1px 1px 5px $dark_t;
+        @include boxshadow;
     }
 
     &--square_radius {
         border-radius: map-get($radius_sizes, "square");
+    }
+    &--basic_radius {
+        border-radius: map-get($radius_sizes, "basic");
     }
     &--round_radius {
         border-radius: map-get($radius_sizes, "round");
@@ -43,7 +45,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        color: $dark;
+        color: map-get($colors, "dark");
         cursor: pointer;
     }
 }

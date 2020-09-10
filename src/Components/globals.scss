@@ -1,11 +1,30 @@
-$white: #fff;
-$light: #a3a3a3;
-$dark: #737373;
-$darker: #383838;
-$dark_t: #73737381;
+$colors: (
+    "black": #000,
+    "white": #fff,
+    "light": #a3a3a3,
+    "light_t": #a3a3a380,
+    "lighter": #e9e9e9,
+    "lighter_t": #e9e9e980,
+    "medium": #b6b6b6,
+    "medium_t": #b6b6b680,
+    "dark": #737373,
+    "dark_t": #73737380,
+    "darker": #383838,
+    "darker_t": #38383880,
+    "darkest": #222222,
+    "darkest_t": #22222280,
+);
 
 $radius_sizes: ("square": 0, "basic": 5px, "round": 50px);
 
 @mixin pointer {
     cursor: pointer;
+}
+
+@mixin boxshadow {
+    box-shadow: 0 1px 3px map-get($colors, "darker_t");
+}
+
+@mixin boxshadow_transition {
+    transition: box-shadow 200ms ease-in-out;
 }

@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { MUKInput } from 'Components';
+import { MUKInput } from 'index';
 import { actions } from '@storybook/addon-actions';
 import React from 'react';
 

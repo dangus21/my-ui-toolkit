@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { MUKButton } from 'Components';
+import { MUKButton } from 'index';
 import React from 'react';
 
 export default {
