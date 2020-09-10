@@ -11,7 +11,7 @@ var _classNames = _interopRequireDefault(require("class-names"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _stylesModule = _interopRequireDefault(require("./styles.module.scss"));
+var _stylesModule = _interopRequireDefault(require("./styles.module.css"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

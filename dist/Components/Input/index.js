@@ -7,7 +7,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Input = void 0;
 
-var _constants = require("Components/constants");
+var _constants = require("../constants");
 
 var _icons = require("@material-ui/icons");
 
@@ -17,7 +17,7 @@ var _classNames = _interopRequireDefault(require("class-names"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _stylesModule = _interopRequireDefault(require("./styles.module.scss"));
+var _stylesModule = _interopRequireDefault(require("./styles.module.css"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

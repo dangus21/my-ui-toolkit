@@ -1,6 +1,4 @@
-@use "sass:map";
-@use "sass:color";
-@import "src/Components/globals";
+@import "src/Components/globals.scss";
 
 $button_colors: (
     "primary": #137cec,

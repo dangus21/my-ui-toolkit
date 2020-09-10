@@ -1,6 +1,6 @@
 {
   "name": "my-ui-toolkit",
-  "version": "0.3.2",
+  "version": "0.3.4",
   "description": "",
   "main": "dist/index.js",
   "keywords": [],
@@ -31,7 +31,8 @@
     "start": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
     "clean": "rimraf dist",
-    "compile": "npm run clean && cross-env NODE_ENV=production babel src --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,stories.js,__snapshots__",
+    "compileCSS": "node-sass src -o src",
+    "compile": "npm run clean && npm run compileCSS && cross-env NODE_ENV=production babel src --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,stories.js,__snapshots__",
     "np": "np"
   },
   "eslintConfig": {
@@ -66,6 +67,7 @@
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
     "babel-plugin-macros": "^2.8.0",
+    "babel-plugin-module-resolver": "^4.0.0",
     "cross-env": "^7.0.2",
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^6.11.0",

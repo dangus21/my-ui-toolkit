@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.warning = exports.error = exports.success = exports.secondary = exports.primary = exports.default = void 0;
 
-var _index = require("index");
+var _ = require("./..");
 
 var _react = _interopRequireDefault(require("react"));
 
@@ -14,7 +14,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /* eslint-disable react/prop-types */
 var _default = {
   title: 'Button',
-  component: _index.MUKButton,
+  component: _.MUKButton,
   argTypes: {
     children: {
       control: {
@@ -56,7 +56,7 @@ var _default = {
 exports.default = _default;
 
 var ButtonTemplate = function ButtonTemplate(args) {
-  return /*#__PURE__*/_react.default.createElement(_index.MUKButton, args);
+  return /*#__PURE__*/_react.default.createElement(_.MUKButton, args);
 };
 
 var primary = ButtonTemplate.bind({});

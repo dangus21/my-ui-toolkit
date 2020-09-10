@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'class-names';
 import types from 'prop-types';
-import styles from './styles.module.scss';
+import styles from './styles.module.css';
 
 const propTypes = {
     children: types.node,
