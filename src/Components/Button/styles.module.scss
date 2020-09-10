@@ -1,0 +1,132 @@
+@use "sass:map";
+@use "sass:color";
+@import "src/Components/globals";
+
+$button_colors: (
+    "primary": #137cec,
+    "secondary": #5d87b3,
+    "success": #59af5d,
+    "error": #da2525,
+    "warn": #e2a217,
+);
+
+.mut_button {
+    border: none;
+    margin: 2px;
+    text-align: center;
+    color: map-get($colors, "darker");
+    @include boxshadow_transition;
+
+    &:hover{
+        @include boxshadow;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &:active {
+        overflow: hidden;
+    }
+
+    &--pointer {
+        @include pointer;
+    }
+
+    &--border {
+        border: 1px solid map-get($colors, "darker");
+    }
+
+    &--size {
+        &--small {
+            padding: map-get($padding_sizes, "small");
+            font-size: map-get($font_sizes, "small");
+        }
+
+        &--medium {
+            padding: map-get($padding_sizes, "medium");
+            font-size: map-get($font_sizes, "medium");
+        }
+
+        &--large {
+            padding: map-get($padding_sizes, "large");
+            font-size: map-get($font_sizes, "large");
+        }
+
+        &--extra {
+            padding: map-get($padding_sizes, "extra");
+            font-size: map-get($font_sizes, "extra");
+        }
+
+        &--jumbo {
+            padding: map-get($padding_sizes, "jumbo");
+            font-size: map-get($font_sizes, "jumbo");
+        }
+    }
+
+    &--type {
+        &--square {
+            border-radius: map-get($radius_sizes, "square");
+        }
+
+        &--basic {
+            border-radius: map-get($radius_sizes, "basic");
+        }
+
+        &--round {
+            border-radius: map-get($radius_sizes, "round");
+        }
+    }
+
+    &--disabled {
+        background-color: map-get($colors, "dark") !important;
+        color: map-get($colors, "medium") !important;
+        cursor: not-allowed !important;
+        &--border {
+            border: 1px solid map-get($colors, "darker") !important;
+        }
+    }
+
+    &--variant {
+        &--primary {
+            color: map-get($colors, "white");
+            background-color: map-get($button_colors, "primary");
+
+            &:active {
+                background-color: darken(map-get($button_colors, "primary"), 5);
+            }
+        }
+
+        &--secondary {
+            color: map-get($colors, "white");
+            background-color: map-get($button_colors, "secondary");
+            &:active {
+                background-color: darken(map-get($button_colors, "secondary"), 5);
+            }
+        }
+
+        &--success {
+            color: map-get($colors, "white");
+            background-color: map-get($button_colors, "success");
+            &:active {
+                background-color: darken(map-get($button_colors, "success"), 5);
+            }
+        }
+
+        &--error {
+            color: map-get($colors, "white");
+            background-color: map-get($button_colors, "error");
+            &:active {
+                background-color: darken(map-get($button_colors, "error"), 5);
+            }
+        }
+
+        &--warn {
+            color: map-get($colors, "black");
+            background-color: map-get($button_colors, "warn");
+            &:active {
+                background-color: darken(map-get($button_colors, "warn"), 5);
+            }
+        }
+    }
+}

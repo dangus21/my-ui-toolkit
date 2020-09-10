@@ -23,7 +23,7 @@ module.exports = {
     },
     plugins: [
         "babel",
-        "sort-imports-es6-autofix",
+        // "sort-imports-es6-autofix",
         "prettier",
         "react-hooks",
         "react",
@@ -35,21 +35,21 @@ module.exports = {
             'error',
             {
                 jsxBracketSameLine: true,
-                printWidth: 50,
+                // printWidth: 55,
                 singleQuote: true,
                 trailingComma: 'es5',
                 tabWidth: 4,
             },
             { usePrettierrc: false },
         ],
-        'sort-imports-es6-autofix/sort-imports-es6': [
-            2,
-            {
-                ignoreCase: false,
-                ignoreMemberSort: false,
-                memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
-            },
-        ],
+        // 'sort-imports-es6-autofix/sort-imports-es6': [
+        //     2,
+        //     {
+        //         ignoreCase: false,
+        //         ignoreMemberSort: false,
+        //         memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
+        //     },
+        // ],
         "prefer-template": "error",
         "no-unused-vars": ["error", { vars: "all", args: "after-used", ignoreRestSiblings: false }],
         "indent": ["error", 4],

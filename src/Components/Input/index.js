@@ -39,6 +39,7 @@ const base = 'muk_input';
 
 export const Input = (props) => {
     const {
+        wrapperProps,
         inputProps: {
             inputOnChange,
             ...restInputProps
@@ -74,7 +75,7 @@ export const Input = (props) => {
                     [`${base}--password`]: props.password,
                 }
             )}
-            {...props.wrapperProps}>
+            {...wrapperProps}>
             <input
                 placeholder={props.placeholder}
                 type={isPW()}
@@ -89,14 +90,14 @@ export const Input = (props) => {
             />
             {props.password && (
                 <i
-                    {...restIconProps}
                     onClick={(event) => {
                         setVisible(!visible);
                         props.click &&
                             props.click(event);
                         iconOnClick &&
                             iconOnClick(event);
-                    }}>
+                    }}
+                    {...restIconProps}>
                     {showPWText() ? (
                         <VisibilityOutlined
                             style={{

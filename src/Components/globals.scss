@@ -1,3 +1,5 @@
+@use "sass:color";
+
 $colors: (
     "black": #000,
     "white": #fff,
@@ -15,7 +17,35 @@ $colors: (
     "darkest_t": #22222280,
 );
 
-$radius_sizes: ("square": 0, "basic": 5px, "round": 50px);
+$font_sizes: (
+    "small": 0.75rem,
+    "medium": 1rem,
+    "large": 1.25rem,
+    "extra": 1.65rem,
+    "jumbo": 2rem,
+);
+
+$padding_sizes: (
+    "small": 5px 10px,
+    "medium": 10px 20px,
+    "large": 15px 25px,
+    "extra": 20px 35px,
+    "jumbo": 40px 65px,
+);
+
+$margin_sizes: (
+    "small": 5px 10px,
+    "medium": 10px 20px,
+    "large": 15px 25px,
+    "extra": 20px 35px,
+    "jumbo": 40px 65px,
+);
+
+$radius_sizes: (
+    "square": 0,
+    "basic": 5px,
+    "round": 50px,
+);
 
 @mixin pointer {
     cursor: pointer;

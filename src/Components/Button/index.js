@@ -1,31 +1,16 @@
-import './styles.scss';
 import React from 'react';
 import cn from 'class-names';
 import types from 'prop-types';
+import styles from './styles.module.scss';
 
 const propTypes = {
     children: types.node,
     pointer: types.bool,
     disabled: types.bool,
     border: types.bool,
-    type: types.oneOf([
-        'square',
-        'basic',
-        'round',
-    ]),
-    size: types.oneOf([
-        'small',
-        'medium',
-        'large',
-        'extra',
-        'jumbo',
-    ]),
-    variant: types.oneOf([
-        'error',
-        'warn',
-        'primary',
-        'secondary',
-    ]),
+    type: types.oneOf(['square', 'basic', 'round']),
+    size: types.oneOf(['small', 'medium', 'large', 'extra', 'jumbo']),
+    variant: types.oneOf(['primary', 'secondary', 'success', 'error', 'warn']),
 };
 
 const defaultProps = {
@@ -38,7 +23,7 @@ const defaultProps = {
     variant: 'primary',
 };
 
-const base = 'muk_button';
+const base = 'mut_button';
 
 export const Button = (props) => {
     const {
@@ -55,17 +40,15 @@ export const Button = (props) => {
     return (
         <button
             className={cn(
-                base,
-                `${base}--type--${type}`,
-                `${base}--size--${size}`,
-                `${base}--${variant}`,
+                styles[base],
+                styles[`${base}--type--${type}`],
+                styles[`${base}--size--${size}`],
+                styles[`${base}--variant--${variant}`],
                 {
-                    [`${base}--pointer`]: pointer,
-                    [`${base}--border`]:
-                        border && !disabled,
-                    [`${base}--disabled--border`]:
-                        border && disabled,
-                    [`${base}--disabled`]: disabled,
+                    [styles[`${base}--pointer`]]: !disabled && pointer,
+                    [styles[`${base}--border`]]: !disabled && border,
+                    [styles[`${base}--disabled--border`]]: disabled && border,
+                    [styles[`${base}--disabled`]]: disabled,
                 }
             )}
             {...otherProps}>

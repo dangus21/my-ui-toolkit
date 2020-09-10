@@ -7,7 +7,7 @@ export default {
     title: 'Input',
     component: MUKInput,
     argTypes: {
-        value: { control: { disable: true } },
+        value: { control: { disable: false } },
         placeholder: {
             control: { disable: false },
         },
@@ -30,12 +30,7 @@ export default {
     },
 };
 
-const InputTemplate = ({
-    wrapperProps,
-    inputProps,
-    iconProps,
-    ...args
-}) => (
+const InputTemplate = ({ wrapperProps, inputProps, iconProps, ...args }) => (
     <MUKInput
         wrapperProps={wrapperProps}
         inputProps={inputProps}
@@ -47,18 +42,14 @@ const InputTemplate = ({
 
 export const standard = InputTemplate.bind({});
 
-export const withWrapperProps = InputTemplate.bind(
-    {}
-);
+export const withWrapperProps = InputTemplate.bind({});
 withWrapperProps.args = {
     wrapperProps: {
         style: { outline: '5px solid red' },
     },
 };
 
-export const withPassword = InputTemplate.bind(
-    {}
-);
+export const withPassword = InputTemplate.bind({});
 withPassword.args = {
     password: true,
     value: 'password text',
