@@ -12,13 +12,13 @@
         @include boxshadow;
     }
 
-    &--square_radius {
+    &--square--radius {
         border-radius: map-get($radius_sizes, "square");
     }
-    &--basic_radius {
+    &--basic--radius {
         border-radius: map-get($radius_sizes, "basic");
     }
-    &--round_radius {
+    &--round--radius {
         border-radius: map-get($radius_sizes, "round");
     }
 

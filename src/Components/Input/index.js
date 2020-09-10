@@ -1,12 +1,9 @@
-import './styles.scss';
 import { ICON_SIZE } from 'Components/constants';
-import {
-    VisibilityOffOutlined,
-    VisibilityOutlined,
-} from '@material-ui/icons';
+import { VisibilityOffOutlined, VisibilityOutlined } from '@material-ui/icons';
 import React, { useState } from 'react';
 import cn from 'class-names';
 import types from 'prop-types';
+import styles from './styles.module.scss';
 
 const propTypes = {
     change: types.func,
@@ -18,11 +15,7 @@ const propTypes = {
     password: types.bool,
     showText: types.bool,
     value: types.string,
-    radius: types.oneOf([
-        'square',
-        'basic',
-        'round',
-    ]),
+    radius: types.oneOf(['square', 'basic', 'round']),
 };
 
 const defaultProps = {
@@ -40,20 +33,14 @@ const base = 'muk_input';
 export const Input = (props) => {
     const {
         wrapperProps,
-        inputProps: {
-            inputOnChange,
-            ...restInputProps
-        },
-        iconProps: {
-            iconOnClick,
-            ...restIconProps
-        },
+        inputProps: { inputOnChange, ...restInputProps },
+        iconProps: { iconOnClick, ...restIconProps },
     } = props;
 
     const [visible, setVisible] = useState(false);
 
     const isPW = () => {
-        if (!props.password) {
+        if (!props.password || props.showText) {
             return 'text';
         }
         return visible ? 'text' : 'password';
@@ -65,14 +52,14 @@ export const Input = (props) => {
         }
         return visible;
     };
-
+    console.log(isPW());
     return (
         <div
             className={cn(
-                base,
-                `${base}--${props.radius}_radius`,
+                styles[base],
+                styles[`${base}--${props.radius}--radius`],
                 {
-                    [`${base}--password`]: props.password,
+                    [styles[`${base}--password`]]: props.password,
                 }
             )}
             {...wrapperProps}>
@@ -81,10 +68,8 @@ export const Input = (props) => {
                 type={isPW()}
                 value={props.value}
                 onChange={(event) => {
-                    inputOnChange &&
-                        inputOnChange(event);
-                    props.change &&
-                        props.change(event);
+                    inputOnChange && inputOnChange(event);
+                    props.change && props.change(event);
                 }}
                 {...restInputProps}
             />
@@ -92,10 +77,8 @@ export const Input = (props) => {
                 <i
                     onClick={(event) => {
                         setVisible(!visible);
-                        props.click &&
-                            props.click(event);
-                        iconOnClick &&
-                            iconOnClick(event);
+                        props.click && props.click(event);
+                        iconOnClick && iconOnClick(event);
                     }}
                     {...restIconProps}>
                     {showPWText() ? (
