@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["es6", "dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": false,
+    "noEmit": true,
+    "jsx": "react",
+    "baseUrl": "src",
+    "noImplicitAny": false,
+    "noImplicitThis": false,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    // "paths": {
+    //   "@modules/*": ["modules/*"],
+    //   "@config/*": ["config/*"],
+    //   "@shared/*": ["shared/*"]
+    // }
+  },
+  "include": [
+    "src",
+    "**/*.js",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.json",
+    "node_modules/@wdio/sync",
+    "node_modules/@wdio/mocha-framework"
+  ]
+}

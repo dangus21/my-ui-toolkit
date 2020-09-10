@@ -46,7 +46,7 @@ const defaultProps = {
 
 const base = 'muk_input';
 
-export const Input = (props) => {
+export const MUTInput = (props) => {
     const {
         wrapperProps,
         inputProps: { inputOnChange, ...restInputProps },
