@@ -1,7 +1,9 @@
 {
   "name": "my-ui-toolkit",
   "version": "0.3.0",
+  "description": "",
   "main": "dist/index.js",
+  "keywords": [],
   "author": "angus miguel",
   "license": "ISC",
   "np": {
