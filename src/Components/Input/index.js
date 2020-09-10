@@ -9,12 +9,12 @@ const propTypes = {
     change: types.func,
     click: types.func,
     placeholder: types.string,
+    value: types.string,
     inputProps: types.object,
     iconProps: types.object,
     wrapperProps: types.object,
     password: types.bool,
     showText: types.bool,
-    value: types.string,
     radius: types.oneOf(['square', 'basic', 'round']),
 };
 
@@ -27,6 +27,22 @@ const defaultProps = {
     inputProps: {},
     iconProps: {},
 };
+
+/**
+ *
+ * @param {*} props
+ * @param {Function} props.change
+ * @param {Function} props.click
+ * @param {String} props.placeholder
+ * @param {String} props.value
+ * @param {Object} props.inputProps
+ * @param {Object} props.iconProps
+ * @param {Object} props.wrapperProps
+ * @param {Boolean} props.wrapperProps
+ * @param {Boolean} props.password
+ * @param {Boolean} props.showText
+ * @param {String} props.radius - 'square', 'basic', 'round'
+ */
 
 const base = 'muk_input';
 

@@ -23,6 +23,17 @@ const defaultProps = {
     variant: 'primary',
 };
 
+/**
+ *
+ * @param {*} props
+ * @param {Boolean} props.pointer
+ * @param {Boolean} props.disabled
+ * @param {Boolean} props.border
+ * @param {String} props.type - 'square', 'basic', 'round'
+ * @param {String} props.size - 'small', 'medium', 'large', 'extra', 'jumbo'
+ * @param {String} props.variant - 'primary', 'secondary', 'success', 'error', 'warn'
+ */
+
 const base = 'mut_button';
 
 export const Button = (props) => {

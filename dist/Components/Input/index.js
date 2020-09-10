@@ -49,12 +49,12 @@ var propTypes = {
   change: _propTypes.default.func,
   click: _propTypes.default.func,
   placeholder: _propTypes.default.string,
+  value: _propTypes.default.string,
   inputProps: _propTypes.default.object,
   iconProps: _propTypes.default.object,
   wrapperProps: _propTypes.default.object,
   password: _propTypes.default.bool,
   showText: _propTypes.default.bool,
-  value: _propTypes.default.string,
   radius: _propTypes.default.oneOf(['square', 'basic', 'round'])
 };
 var defaultProps = {
@@ -66,6 +66,22 @@ var defaultProps = {
   inputProps: {},
   iconProps: {}
 };
+/**
+ *
+ * @param {*} props
+ * @param {Function} props.change
+ * @param {Function} props.click
+ * @param {String} props.placeholder
+ * @param {String} props.value
+ * @param {Object} props.inputProps
+ * @param {Object} props.iconProps
+ * @param {Object} props.wrapperProps
+ * @param {Boolean} props.wrapperProps
+ * @param {Boolean} props.password
+ * @param {Boolean} props.showText
+ * @param {String} props.radius - 'square', 'basic', 'round'
+ */
+
 var base = 'muk_input';
 
 var Input = function Input(props) {
