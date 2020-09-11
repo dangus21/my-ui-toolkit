@@ -1,6 +1,6 @@
 {
   "name": "my-ui-toolkit",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "description": "",
   "main": "dist/index.js",
   "files": [
@@ -21,8 +21,10 @@
       "build-storybook": "build-storybook -s public",
       "tsc": "tsc",
       "clean": "rimraf dist",
-      "compileCSS": "node-sass src -o src",
-      "compile": "npm run clean && npm run compileCSS && cross-env NODE_ENV=production babel src --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,stories.js,__snapshots__",
+      "css": "node-sass src -o src",
+      "css:w": "node-sass src -o src -w",
+      "css:out": "node-sass src -o dist",
+      "compile": "npm run clean && cross-env NODE_ENV=production npm run tsc && npm run css:out",
       "pub": "npm publish dist"
     },
   "dependencies": {
