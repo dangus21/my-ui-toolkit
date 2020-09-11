@@ -23,9 +23,9 @@
     "strictNullChecks": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "sourceMap": true,
     "baseUrl": "src",
     "outDir": "dist",
+    "declaration": true
   },
   "exclude": [
       "src/stories"

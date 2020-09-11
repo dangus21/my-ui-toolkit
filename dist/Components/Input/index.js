@@ -69,4 +69,3 @@ MUTInput.defaultProps = {
     inputProps: {},
     iconProps: {},
 };
-//# sourceMappingURL=index.js.map

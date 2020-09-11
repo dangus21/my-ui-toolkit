@@ -43,4 +43,3 @@ MUTButton.defaultProps = {
     size: 'small',
     variant: 'primary',
 };
-//# sourceMappingURL=index.js.map
