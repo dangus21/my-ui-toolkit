@@ -30,11 +30,8 @@ export default {
     },
 } as Meta;
 
-const InputTemplate = ({ wrapperProps, inputProps, iconProps, ...args }) => (
+const InputTemplate = (args) => (
     <MUTInput
-        wrapperProps={wrapperProps}
-        inputProps={inputProps}
-        iconProps={iconProps}
         {...actions('onChange')}
         {...args}
     />
