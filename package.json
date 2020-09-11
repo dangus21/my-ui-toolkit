@@ -1,6 +1,6 @@
 {
   "name": "my-ui-toolkit",
-  "version": "0.3.9",
+  "version": "0.3.10",
   "description": "",
   "main": "dist/index.js",
   "files": [
@@ -8,10 +8,6 @@
   ],
   "author": "angus miguel",
   "license": "ISC",
-  "np": {
-    "yarn": false,
-    "contents": "dist"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/dangus21/my-ui-toolkit/"

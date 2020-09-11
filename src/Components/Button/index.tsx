@@ -10,6 +10,7 @@ export interface IProps {
     type?: 'square' | 'basic' | 'round',
     size?: 'small' | 'medium' | 'large' | 'extra' | 'jumbo',
     variant?: 'primary' | 'secondary' | 'success' | 'error' | 'warn',
+    onClick?: (event: React.MouseEvent) => void,
 }
 
 export const MUTButton = (props: IProps) => {

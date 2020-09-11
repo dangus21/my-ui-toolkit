@@ -1,7 +1,7 @@
 import React from 'react';
 export interface IProps {
-    change?: (event: React.ChangeEvent<HTMLInputElement>) => any;
-    click?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => any;
+    change?: (event: React.ChangeEvent) => void;
+    click?: (event: React.MouseEvent) => void;
     placeholder?: string;
     value?: string;
     inputProps?: any;
