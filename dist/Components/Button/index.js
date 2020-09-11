@@ -1,76 +1,46 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Button = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _classNames = _interopRequireDefault(require("class-names"));
-
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
-var _stylesModule = _interopRequireDefault(require("./styles.module.css"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
-
-function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
-
-var propTypes = {
-  children: _propTypes.default.node,
-  pointer: _propTypes.default.bool,
-  disabled: _propTypes.default.bool,
-  border: _propTypes.default.bool,
-  type: _propTypes.default.oneOf(['square', 'basic', 'round']),
-  size: _propTypes.default.oneOf(['small', 'medium', 'large', 'extra', 'jumbo']),
-  variant: _propTypes.default.oneOf(['primary', 'secondary', 'success', 'error', 'warn'])
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
 };
-var defaultProps = {
-  children: 'Button text',
-  pointer: false,
-  disabled: false,
-  border: false,
-  type: 'basic',
-  size: 'small',
-  variant: 'primary'
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
 };
-/**
- *
- * @param {*} props
- * @param {Boolean} props.pointer
- * @param {Boolean} props.disabled
- * @param {Boolean} props.border
- * @param {String} props.type - 'square', 'basic', 'round'
- * @param {String} props.size - 'small', 'medium', 'large', 'extra', 'jumbo'
- * @param {String} props.variant - 'primary', 'secondary', 'success', 'error', 'warn'
- */
-
-var base = 'mut_button';
-
-var Button = function Button(props) {
-  var _cn;
-
-  var children = props.children,
-      pointer = props.pointer,
-      disabled = props.disabled,
-      border = props.border,
-      type = props.type,
-      size = props.size,
-      variant = props.variant,
-      otherProps = _objectWithoutProperties(props, ["children", "pointer", "disabled", "border", "type", "size", "variant"]);
-
-  return /*#__PURE__*/_react.default.createElement("button", _extends({
-    className: (0, _classNames.default)(_stylesModule.default[base], _stylesModule.default["".concat(base, "--type--").concat(type)], _stylesModule.default["".concat(base, "--size--").concat(size)], _stylesModule.default["".concat(base, "--variant--").concat(variant)], (_cn = {}, _defineProperty(_cn, _stylesModule.default["".concat(base, "--pointer")], !disabled && pointer), _defineProperty(_cn, _stylesModule.default["".concat(base, "--border")], !disabled && border), _defineProperty(_cn, _stylesModule.default["".concat(base, "--disabled--border")], disabled && border), _defineProperty(_cn, _stylesModule.default["".concat(base, "--disabled")], disabled), _cn))
-  }, otherProps), children);
+import React from 'react';
+import cn from 'class-names';
+import styles from './styles.module.css';
+export var MUTButton = function (props) {
+    var _a;
+    var base = 'mut_button';
+    var _b = props.children, children = _b === void 0 ? 'Button text' : _b, _c = props.pointer, pointer = _c === void 0 ? false : _c, _d = props.disabled, disabled = _d === void 0 ? false : _d, _e = props.border, border = _e === void 0 ? false : _e, _f = props.type, type = _f === void 0 ? 'basic' : _f, _g = props.size, size = _g === void 0 ? 'small' : _g, _h = props.variant, variant = _h === void 0 ? 'primary' : _h, otherProps = __rest(props, ["children", "pointer", "disabled", "border", "type", "size", "variant"]);
+    return (React.createElement("button", __assign({ className: cn(styles[base], styles[base + "--type--" + type], styles[base + "--size--" + size], styles[base + "--variant--" + variant], (_a = {},
+            _a[styles[base + "--pointer"]] = !disabled && pointer,
+            _a[styles[base + "--border"]] = !disabled && border,
+            _a[styles[base + "--disabled--border"]] = disabled && border,
+            _a[styles[base + "--disabled"]] = disabled,
+            _a)) }, otherProps), children));
 };
-
-exports.Button = Button;
-Button.propTypes = propTypes;
-Button.defaultProps = defaultProps;
+MUTButton.defaultProps = {
+    children: 'Button text',
+    pointer: false,
+    disabled: false,
+    border: false,
+    type: 'basic',
+    size: 'small',
+    variant: 'primary',
+};
+//# sourceMappingURL=index.js.map
