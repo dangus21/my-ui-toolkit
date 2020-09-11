@@ -24,7 +24,7 @@
       "css": "node-sass src -o src",
       "css:w": "node-sass src -o src -w",
       "css:out": "node-sass src -o dist",
-      "compile": "npm run clean && cross-env NODE_ENV=production npm run tsc && npm run css:out",
+      "compile": "npm run clean && cross-env NODE_ENV=production npm run tsc && npm run css:out"
     },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
