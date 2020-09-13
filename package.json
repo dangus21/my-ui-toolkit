@@ -5,8 +5,8 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
-    "src/**/*.scss",
-    "dist"
+    "dist",
+    "types"
   ],
   "author": "angus miguel",
   "license": "ISC",
