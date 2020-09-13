@@ -3,6 +3,7 @@
   "version": "0.4.1",
   "description": "",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "src/**/*.scss",
     "dist"
@@ -17,12 +18,15 @@
     "start": "start-storybook -p 6006 -s public && npm run css:w",
     "build-storybook": "build-storybook -s public",
     "tsc": "tsc",
+    "types": "tsc --declaration --emitDeclarationOnly --outDir types",
     "rs": "npm-run-all",
     "clean": "rimraf dist",
     "clean-temp": "rimraf lib",
+    "clean-types": "rimraf lib",
     "css": "node-sass src -o dist",
     "css-imports": "babel lib --out-dir dist",
-    "compile": "npm run rs clean clean-temp tsc css-imports css clean-temp"
+    "compile": "npm run rs clean clean-temp clean-types types tsc css-imports css clean-temp",
+    "send": "np --no-yarn"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
