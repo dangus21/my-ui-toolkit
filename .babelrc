@@ -1,0 +1,5 @@
+{
+  "plugins": [
+    ["import-rename", {"^(.*)\\.scss$": "$1.css"}]
+  ]
+}

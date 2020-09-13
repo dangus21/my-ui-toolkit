@@ -1,5 +1,6 @@
 import React from 'react';
 import { MUTInput } from '../Components/Input';
+import { MUTButton } from '../Components/Button';
 import { actions } from '@storybook/addon-actions';
 import { Meta } from '@storybook/react/types-6-0';
 
@@ -30,11 +31,14 @@ export default {
     },
 } as Meta;
 
-const InputTemplate = (args) => (
-    <MUTInput
-        {...actions('onChange')}
-        {...args}
-    />
+const InputTemplate = ({ el, ...args }) => (
+    <div style={{display: 'flex'}}>
+        <MUTButton />
+        <MUTInput
+            {...actions('onChange')}
+            {...args}
+        />
+    </div>
 );
 
 export const standard = InputTemplate.bind({});

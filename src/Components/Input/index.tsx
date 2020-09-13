@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import cn from 'class-names';
 import { ICON_SIZE } from '../constants';
-import { VisibilityOffOutlined, VisibilityOutlined } from '@material-ui/icons';
-import styles from './styles.module.css';
+import { AiFillEyeInvisible, AiFillEye } from 'react-icons/ai';
+import styles from './styles.module.scss';
 
 export interface IProps {
     change?: (event: React.ChangeEvent) => void,
@@ -14,6 +14,7 @@ export interface IProps {
     wrapperProps?: any,
     password?: boolean,
     showText?: boolean,
+    fluid?: boolean,
     radius?: 'square' | 'basic' | 'round',
 };
 
@@ -40,6 +41,7 @@ export const MUTInput = (props: IProps) => {
         }
         return visible;
     };
+    console.log('LOG: MUTInput -> props', props);
 
     return (
         <div
@@ -49,6 +51,7 @@ export const MUTInput = (props: IProps) => {
                     styles[`${base}--${props.radius}--radius`],
                     {
                         [styles[`${base}--password`]]: props.password,
+                        [styles[`${base}--${props.fluid}`]]: props.fluid,
                     }
                 )}
             {...wrapperProps}>
@@ -74,13 +77,13 @@ export const MUTInput = (props: IProps) => {
                         }
                         {...restIconProps}>
                         {showPWText() ? (
-                            <VisibilityOutlined
+                            <AiFillEye
                                 style={{
                                     fontSize: ICON_SIZE,
                                 }}
                             />
                         ) : (
-                                <VisibilityOffOutlined
+                                <AiFillEyeInvisible
                                     style={{
                                         fontSize: ICON_SIZE,
                                     }}
@@ -98,6 +101,7 @@ MUTInput.defaultProps = {
     radius: 'basic',
     password: false,
     showText: false,
+    fluid: false,
     wrapperProps: {},
     inputProps: {},
     iconProps: {},

@@ -1,11 +1,11 @@
-@use "sass:map";
 @import "src/Components/globals.scss";
 
 .muk_input {
-    display: flex;
-    width: 100%;
+    display: inline-flex;
     border: 1px solid map-get($colors, "dark");
     background-color: map-get($colors, "white");
+    padding: map-get($padding_sizes, "small_sq");
+
     @include boxshadow_transition;
 
     &:focus-within {
@@ -26,6 +26,10 @@
         display: grid;
         grid-template-columns: 1fr;
         grid-template-columns: 1fr 30px;
+    }
+
+    &--fluid {
+        width: 100%;
     }
 
     input {

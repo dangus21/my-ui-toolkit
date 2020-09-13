@@ -2,9 +2,9 @@
 @use "sass:map";
 .mut_button {
   border: none;
-  margin: 2px;
   text-align: center;
   color: #383838;
+  display: inline-flex;
   transition: box-shadow 200ms ease-in-out; }
   .mut_button:hover {
     box-shadow: 0 1px 3px #38383880; }

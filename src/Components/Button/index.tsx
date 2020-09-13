@@ -1,6 +1,6 @@
 import React from 'react';
 import cn from 'class-names';
-import styles from './styles.module.css';
+import styles from './styles.module.scss';
 
 export interface IProps {
     children?: React.ReactNode,
@@ -10,6 +10,7 @@ export interface IProps {
     type?: 'square' | 'basic' | 'round',
     size?: 'small' | 'medium' | 'large' | 'extra' | 'jumbo',
     variant?: 'primary' | 'secondary' | 'success' | 'error' | 'warn',
+    text?: 'Click',
     onClick?: (event: React.MouseEvent) => void,
 }
 
@@ -42,17 +43,17 @@ export const MUTButton = (props: IProps) => {
                 }
             )}
             {...otherProps}>
-            {children}
+            {props.text}
         </button>
     );
 };
 
 MUTButton.defaultProps = {
-    children: 'Button text',
+    text: 'Button text',
     pointer: false,
     disabled: false,
     border: false,
     type: 'basic',
-    size: 'small',
+    size: 'medium',
     variant: 'primary',
 }

@@ -24,10 +24,10 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "baseUrl": "src",
-    "outDir": "dist",
+    "outDir": "lib",
     "declaration": true
   },
   "exclude": [
       "src/stories"
-  ]
+  ],
 }

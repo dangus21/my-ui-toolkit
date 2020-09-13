@@ -10,9 +10,9 @@ $button_colors: (
 
 .mut_button {
     border: none;
-    margin: 2px;
     text-align: center;
     color: map-get($colors, "darker");
+    display: inline-flex;
     @include boxshadow_transition;
 
     &:hover{
