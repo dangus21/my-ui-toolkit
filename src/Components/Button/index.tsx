@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 import cn from 'class-names';
 import styles from './styles.module.scss';
 
-export interface IProps {
+export type IProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     children?: React.ReactNode,
     pointer?: boolean,
     disabled?: boolean,
@@ -11,7 +11,6 @@ export interface IProps {
     size?: 'small' | 'medium' | 'large' | 'extra' | 'jumbo',
     variant?: 'primary' | 'secondary' | 'success' | 'error' | 'warn',
     text?: 'Click',
-    onClick?: (event: React.MouseEvent) => void,
 }
 
 export const MUTButton = (props: IProps) => {

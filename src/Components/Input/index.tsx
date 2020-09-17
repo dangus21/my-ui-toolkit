@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React, { InputHTMLAttributes, useState } from 'react';
 import cn from 'class-names';
 import { ICON_SIZE } from '../constants';
 import { AiFillEyeInvisible, AiFillEye } from 'react-icons/ai';
 import styles from './styles.module.scss';
 
-export interface IProps {
-    change?: (event: React.ChangeEvent) => void,
-    click?: (event: React.MouseEvent) => void,
+export type IProps = InputHTMLAttributes<HTMLInputElement> & {
     placeholder?: string,
     value?: string,
     inputProps?: any,
@@ -61,7 +59,7 @@ export const MUTInput = (props: IProps) => {
                 value={props.value}
                 onChange={(event) => {
                     inputOnChange && inputOnChange(event);
-                    props.change && props.change(event);
+                    props.onChange && props.onChange(event);
                 }}
                 {...restInputProps}
             />
@@ -69,9 +67,9 @@ export const MUTInput = (props: IProps) => {
                 props.password && (
                     <i
                         onClick={
-                            (event) => {
+                            (event: any) => {
                                 setVisible(!visible);
-                                props.click && props.click(event);
+                                props.onClick && props.onClick(event);
                                 iconOnClick && iconOnClick(event);
                             }
                         }
@@ -90,8 +88,9 @@ export const MUTInput = (props: IProps) => {
                                 />
                             )}
                     </i>
-                )}
-        </div>
+                )
+            }
+        </div >
     );
 };
 
