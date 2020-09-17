@@ -2,7 +2,7 @@ import React, { InputHTMLAttributes, useState } from 'react';
 import cn from 'class-names';
 import { ICON_SIZE } from '../constants';
 import { AiFillEyeInvisible, AiFillEye } from 'react-icons/ai';
-import styles from './styles.module.scss';
+import * as styles from './styles.module.scss';
 
 export type IProps = InputHTMLAttributes<HTMLInputElement> & {
     placeholder?: string,

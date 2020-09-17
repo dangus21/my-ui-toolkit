@@ -1,6 +1,6 @@
 import React, { ButtonHTMLAttributes } from 'react';
 import cn from 'class-names';
-import styles from './styles.module.scss';
+import * as styles from './styles.module.scss';
 
 export type IProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     children?: React.ReactNode,

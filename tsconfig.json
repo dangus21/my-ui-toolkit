@@ -28,6 +28,7 @@
     "declaration": true,
     "sourceMap": true
   },
+  "include": ["src/**/*"],
   "exclude": [
       "src/stories"
   ],
