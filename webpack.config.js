@@ -75,7 +75,7 @@ module.exports = function(){
         mode: 'production',
         output: {
             path: path.join(__dirname, 'dist'),
-            filename: 'bundle.js',
+            filename: 'index.js',
         },
         resolve: {
             extensions: [".js", ".jsx", ".json", ".ts", ".tsx", ".scss"],
@@ -103,11 +103,9 @@ module.exports = function(){
             ]
         },
         plugins: [
-
             new MiniCssExtractPlugin({
                 filename: "bundle.css"
             })
-
         ],
         optimization: {
             minimize: true,
