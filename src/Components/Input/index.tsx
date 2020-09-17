@@ -39,7 +39,6 @@ export const MUTInput = (props: IProps) => {
         }
         return visible;
     };
-    console.log('LOG: MUTInput -> props', props);
 
     return (
         <div
