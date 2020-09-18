@@ -133,70 +133,46 @@ function _nonIterableRest() {
   throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
 
-function createCommonjsModule(fn, basedir, module) {
-	return module = {
-	  path: basedir,
-	  exports: {},
-	  require: function (path, base) {
-      return commonjsRequire(path, (base === undefined || base === null) ? module.path : base);
-    }
-	}, fn(module, module.exports), module.exports;
-}
+function toVal(mix) {
+	var k, y, str='';
 
-function commonjsRequire () {
-	throw new Error('Dynamic requires are not currently supported by @rollup/plugin-commonjs');
-}
-
-var classnames = createCommonjsModule(function (module) {
-/*!
-  Copyright (c) 2017 Jed Watson.
-  Licensed under the MIT License (MIT), see
-  http://jedwatson.github.io/classnames
-*/
-/* global define */
-
-(function () {
-
-	var hasOwn = {}.hasOwnProperty;
-
-	function classNames () {
-		var classes = [];
-
-		for (var i = 0; i < arguments.length; i++) {
-			var arg = arguments[i];
-			if (!arg) continue;
-
-			var argType = typeof arg;
-
-			if (argType === 'string' || argType === 'number') {
-				classes.push(arg);
-			} else if (Array.isArray(arg) && arg.length) {
-				var inner = classNames.apply(null, arg);
-				if (inner) {
-					classes.push(inner);
-				}
-			} else if (argType === 'object') {
-				for (var key in arg) {
-					if (hasOwn.call(arg, key) && arg[key]) {
-						classes.push(key);
+	if (typeof mix === 'string' || typeof mix === 'number') {
+		str += mix;
+	} else if (typeof mix === 'object') {
+		if (Array.isArray(mix)) {
+			for (k=0; k < mix.length; k++) {
+				if (mix[k]) {
+					if (y = toVal(mix[k])) {
+						str && (str += ' ');
+						str += y;
 					}
 				}
 			}
+		} else {
+			for (k in mix) {
+				if (mix[k]) {
+					str && (str += ' ');
+					str += k;
+				}
+			}
 		}
-
-		return classes.join(' ');
 	}
 
-	if ( module.exports) {
-		classNames.default = classNames;
-		module.exports = classNames;
-	} else {
-		window.classNames = classNames;
-	}
-}());
-});
+	return str;
+}
 
-var classNames = classnames;
+function cn () {
+	var i=0, tmp, x, str='';
+	while (i < arguments.length) {
+		if (tmp = arguments[i++]) {
+			if (x = toVal(tmp)) {
+				str && (str += ' ');
+				str += x;
+			}
+		}
+	}
+	return str;
+}
 
 function styleInject(css, ref) {
   if ( ref === void 0 ) ref = {};
@@ -251,7 +227,7 @@ var MUTButton = function MUTButton(props) {
       otherProps = _objectWithoutProperties(props, ["children", "pointer", "disabled", "border", "type", "size", "variant"]);
 
   return /*#__PURE__*/React__default['default'].createElement("button", _extends({
-    className: classNames(styles[base], styles["".concat(base, "--type--").concat(type)], styles["".concat(base, "--size--").concat(size)], styles["".concat(base, "--variant--").concat(variant)], (_cn = {}, _defineProperty(_cn, styles["".concat(base, "--pointer")], !disabled && pointer), _defineProperty(_cn, styles["".concat(base, "--border")], !disabled && border), _defineProperty(_cn, styles["".concat(base, "--disabled--border")], disabled && border), _defineProperty(_cn, styles["".concat(base, "--disabled")], disabled), _cn))
+    className: cn(styles[base], styles["".concat(base, "--type--").concat(type)], styles["".concat(base, "--size--").concat(size)], styles["".concat(base, "--variant--").concat(variant)], (_cn = {}, _defineProperty(_cn, styles["".concat(base, "--pointer")], !disabled && pointer), _defineProperty(_cn, styles["".concat(base, "--border")], !disabled && border), _defineProperty(_cn, styles["".concat(base, "--disabled--border")], disabled && border), _defineProperty(_cn, styles["".concat(base, "--disabled")], disabled), _cn))
   }, otherProps), props.text);
 };
 MUTButton.defaultProps = {
@@ -397,7 +373,7 @@ var MUTInput = function MUTInput(props) {
   };
 
   return /*#__PURE__*/React__default['default'].createElement("div", _extends({
-    className: classNames(styles$1[base], styles$1["".concat(base, "--").concat(props.radius, "--radius")], (_cn = {}, _defineProperty(_cn, styles$1["".concat(base, "--password")], props.password), _defineProperty(_cn, styles$1["".concat(base, "--").concat(props.fluid)], props.fluid), _cn))
+    className: cn(styles$1[base], styles$1["".concat(base, "--").concat(props.radius, "--radius")], (_cn = {}, _defineProperty(_cn, styles$1["".concat(base, "--password")], props.password), _defineProperty(_cn, styles$1["".concat(base, "--").concat(props.fluid)], props.fluid), _cn))
   }, wrapperProps), /*#__PURE__*/React__default['default'].createElement("input", _extends({
     placeholder: props.placeholder,
     type: isPW(),

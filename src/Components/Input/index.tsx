@@ -1,5 +1,5 @@
 import React, { InputHTMLAttributes, useState } from 'react';
-import cn from 'class-names';
+import cn from 'clsx';
 import { ICON_SIZE } from '../constants';
 import { AiFillEyeInvisible, AiFillEye } from 'react-icons/ai';
 import * as styles from './styles.module.scss';

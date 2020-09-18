@@ -1,5 +1,5 @@
 import React, { ButtonHTMLAttributes } from 'react';
-import cn from 'class-names';
+import cn from 'clsx';
 import * as styles from './styles.module.scss';
 
 export type IProps = ButtonHTMLAttributes<HTMLButtonElement> & {
