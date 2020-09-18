@@ -1,7 +1,9 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import { MUTButton, IProps } from '../Components/Button';
-
+import {MUTButton as DistButton} from '../dist/index'
+console.log('LOG: MUTButton', MUTButton);
+console.log('LOG: DistButton', DistButton);
 
 export default {
     title: 'Components/Button',
@@ -10,6 +12,8 @@ export default {
 } as Meta;
 
 const ButtonTemplate: Story<IProps> = (args) => <MUTButton {...args} />
+
+export const Dist: Story<IProps> = (args) => <DistButton {...args} />
 
 export const primary = ButtonTemplate.bind({});
 primary.args = {

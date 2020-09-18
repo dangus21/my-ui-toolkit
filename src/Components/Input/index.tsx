@@ -2,7 +2,7 @@ import React, { InputHTMLAttributes, useState } from 'react';
 import cn from 'clsx';
 import { ICON_SIZE } from '../constants';
 import { AiFillEyeInvisible, AiFillEye } from 'react-icons/ai';
-import * as styles from './styles.module.scss';
+import './styles.scss';
 
 export type IProps = InputHTMLAttributes<HTMLInputElement> & {
     placeholder?: string,
@@ -44,11 +44,11 @@ export const MUTInput = (props: IProps) => {
         <div
             className={
                 cn(
-                    styles[base],
-                    styles[`${base}--${props.radius}--radius`],
+                    [base],
+                    [`${base}--${props.radius}--radius`],
                     {
-                        [styles[`${base}--password`]]: props.password,
-                        [styles[`${base}--${props.fluid}`]]: props.fluid,
+                        [`${base}--password`]: props.password,
+                        [`${base}--${props.fluid}`]: props.fluid,
                     }
                 )}
             {...wrapperProps}>

@@ -1,6 +1,6 @@
 import React, { ButtonHTMLAttributes } from 'react';
 import cn from 'clsx';
-import * as styles from './styles.module.scss';
+import './styles.scss';
 
 export type IProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     children?: React.ReactNode,
@@ -30,15 +30,15 @@ export const MUTButton = (props: IProps) => {
     return (
         <button
             className={cn(
-                styles[base],
-                styles[`${base}--type--${type}`],
-                styles[`${base}--size--${size}`],
-                styles[`${base}--variant--${variant}`],
+                base,
+                `${base}--type--${type}`,
+                `${base}--size--${size}`,
+                `${base}--variant--${variant}`,
                 {
-                    [styles[`${base}--pointer`]]: !disabled && pointer,
-                    [styles[`${base}--border`]]: !disabled && border,
-                    [styles[`${base}--disabled--border`]]: disabled && border,
-                    [styles[`${base}--disabled`]]: disabled,
+                    [`${base}--pointer`]: !disabled && pointer,
+                    [`${base}--border`]: !disabled && border,
+                    [`${base}--disabled--border`]: disabled && border,
+                    [`${base}--disabled`]: disabled,
                 }
             )}
             {...otherProps}>

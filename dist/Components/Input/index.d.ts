@@ -1,4 +1,5 @@
 import { InputHTMLAttributes } from 'react';
+import './styles.scss';
 export declare type IProps = InputHTMLAttributes<HTMLInputElement> & {
     placeholder?: string;
     value?: string;

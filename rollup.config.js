@@ -3,12 +3,13 @@ import resolve from "@rollup/plugin-node-resolve";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import postcss from "rollup-plugin-postcss";
 import { nodeResolve } from '@rollup/plugin-node-resolve';
-import babel from '@rollup/plugin-babel'
-import url from '@rollup/plugin-url'
+import babel from '@rollup/plugin-babel';
+import typescript from "rollup-plugin-typescript2";
 
 import packageJson from "./package.json";
 
 export default {
+    external: ['react', 'react-dom', 'clsx'],
     input: "./src/index.ts",
     output: [
         {
@@ -22,11 +23,9 @@ export default {
     ],
     plugins: [
         peerDepsExternal(),
-        url(),
         resolve({
-            extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx', '.json']
+            extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx', '.json', '.css', '.scss']
         }),
-        commonjs(),
         postcss({
             extract: true,
             extract: false,
@@ -34,7 +33,7 @@ export default {
             writeDefinitions: true,
             use: ['sass'],
         }),
-        nodeResolve(),
+        typescript(),
         babel({
             babelrc: false,
             presets: [
@@ -43,8 +42,11 @@ export default {
                 "@babel/preset-typescript",
             ],
             extensions: [".js", ".jsx", ".ts", ".tsx"],
-            exclude: 'node_modules/**'
+            exclude: 'node_modules/**',
+            babelHelpers: 'bundled',
         }),
+        nodeResolve(),
+        commonjs({ include: 'node_modules/**' }),
     ],
-    external: ['react', 'react-dom'],
+
 };

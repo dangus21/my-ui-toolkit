@@ -1,4 +1,5 @@
 import React, { ButtonHTMLAttributes } from 'react';
+import './styles.scss';
 export declare type IProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     children?: React.ReactNode;
     pointer?: boolean;
