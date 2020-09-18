@@ -27,9 +27,7 @@ export default {
             extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx', '.json', '.css', '.scss']
         }),
         postcss({
-            extract: true,
-            extract: false,
-            modules: true,
+            modules: false,
             writeDefinitions: true,
             use: ['sass'],
         }),
