@@ -1,6 +1,6 @@
 {
   "name": "my-ui-toolkit",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "",
   "main": "dist/index.js",
   "types": "types/index.d.ts",
