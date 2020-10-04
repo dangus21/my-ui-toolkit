@@ -1,10 +1,12 @@
 {
   "name": "my-ui-toolkit",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "author": "angus miguel",
   "license": "ISC",
   "repository": {
