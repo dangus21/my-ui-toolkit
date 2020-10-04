@@ -3,11 +3,8 @@
   "version": "0.6.0",
   "description": "",
   "main": "dist/index.js",
-  "types": "types/index.d.ts",
-  "files": [
-    "dist",
-    "types"
-  ],
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
   "author": "angus miguel",
   "license": "ISC",
   "repository": {
