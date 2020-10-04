@@ -3,6 +3,7 @@ import { MUTInput } from '../Components/Input';
 import { MUTButton } from '../Components/Button';
 import { actions } from '@storybook/addon-actions';
 import { Meta } from '@storybook/react/types-6-0';
+import { MUTInput as DistInput } from '../Components/Input/index'
 
 export default {
     title: 'Components/Input',
@@ -30,6 +31,9 @@ export default {
         change: { control: { disable: true } },
     },
 } as Meta;
+
+export const Dist = (args) => <DistInput {...args} />
+
 
 const InputTemplate = ({ el, ...args }) => (
     <div style={{display: 'flex'}}>
