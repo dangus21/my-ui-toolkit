@@ -15,11 +15,10 @@
   },
   "scripts": {
     "start": "start-storybook -p 6006 -s public",
-    "build": "rimraf dist && rollup -c",
     "build-storybook": "build-storybook -s public",
     "tsc": "tsc",
     "send": "np --no-yarn",
-    "build2": "webpack --mode production"
+    "build2": "rimraf dist && webpack --mode production"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
