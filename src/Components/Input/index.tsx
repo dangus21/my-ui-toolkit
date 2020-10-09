@@ -1,28 +1,25 @@
-import React, { InputHTMLAttributes, useState } from 'react';
+import React, { InputHTMLAttributes, ButtonHTMLAttributes, HTMLAttributes, useState } from 'react';
 import cn from 'clsx';
 import { ICON_SIZE } from '../constants';
 import { AiFillEyeInvisible, AiFillEye } from 'react-icons/ai';
 import './styles.scss';
 
-export type IProps = InputHTMLAttributes<HTMLInputElement> & {
+export type IProps = {
     placeholder?: string,
     value?: string,
-    inputProps?: any,
-    iconProps?: any,
-    wrapperProps?: any,
+    inputProps?: InputHTMLAttributes<HTMLInputElement>,
+    iconProps?: ButtonHTMLAttributes<HTMLButtonElement>,
+    wrapperProps?: HTMLAttributes<HTMLDivElement>,
     password?: boolean,
     showText?: boolean,
     fluid?: boolean,
     radius?: 'square' | 'basic' | 'round',
+    onChange?: (event: React.ChangeEvent) => void,
+    onClick?: (event: React.MouseEvent) => void,
 };
 
 export const MUTInput = (props: IProps) => {
     const base = 'muk_input';
-    const {
-        wrapperProps,
-        inputProps: { inputOnChange, ...restInputProps },
-        iconProps: { iconOnClick, ...restIconProps },
-    } = props;
 
     const [visible, setVisible] = useState(false);
 
@@ -42,6 +39,7 @@ export const MUTInput = (props: IProps) => {
 
     return (
         <div
+            {...props.wrapperProps}
             className={
                 cn(
                     [base],
@@ -50,29 +48,26 @@ export const MUTInput = (props: IProps) => {
                         [`${base}--password`]: props.password,
                         [`${base}--${props.fluid}`]: props.fluid,
                     }
-                )}
-            {...wrapperProps}>
+                )}>
             <input
+                {...props.inputProps}
                 placeholder={props.placeholder}
                 type={isPW()}
                 value={props.value}
                 onChange={(event) => {
-                    inputOnChange && inputOnChange(event);
                     props.onChange && props.onChange(event);
                 }}
-                {...restInputProps}
             />
             {
                 props.password && (
                     <i
+                        {...props.iconProps}
                         onClick={
-                            (event: any) => {
+                            (event: React.MouseEvent) => {
                                 setVisible(!visible);
                                 props.onClick && props.onClick(event);
-                                iconOnClick && iconOnClick(event);
                             }
-                        }
-                        {...restIconProps}>
+                        }>
                         {showPWText() ? (
                             <AiFillEye
                                 style={{

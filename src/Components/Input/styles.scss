@@ -4,7 +4,28 @@
     display: inline-flex;
     border: 1px solid map-get($colors, "dark");
     background-color: map-get($colors, "white");
-    padding: map-get($padding_sizes, "small_sq");
+
+    input {
+        width: 100%;
+        height: 20px;
+        border: 0;
+        padding: 6px;
+        margin-left: 5px;
+        background-color: transparent;
+        border-radius: inherit;
+        text-overflow: ellipsis;
+        &:focus {
+            outline: none;
+        }
+    }
+
+    i {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: map-get($colors, "dark");
+        cursor: pointer;
+    }
 
     @include boxshadow_transition;
 
@@ -30,26 +51,5 @@
 
     &--fluid {
         width: 100%;
-    }
-
-    input {
-        width: 100%;
-        border: 0;
-        padding: 5px;
-        margin-left: 5px;
-        background-color: transparent;
-        border-radius: inherit;
-        text-overflow: ellipsis;
-        &:focus {
-            outline: none;
-        }
-    }
-
-    i {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: map-get($colors, "dark");
-        cursor: pointer;
     }
 }

@@ -13,6 +13,9 @@ $button_colors: (
     text-align: center;
     color: map-get($colors, "darker");
     display: inline-flex;
+    align-items: center;
+    line-height: 20px;
+
     @include boxshadow_transition;
 
     &:hover{

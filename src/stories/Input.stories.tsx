@@ -32,8 +32,6 @@ export default {
     },
 } as Meta;
 
-export const Dist = (args) => <DistInput {...args} />
-
 
 const InputTemplate = ({ el, ...args }) => (
     <div style={{display: 'flex'}}>

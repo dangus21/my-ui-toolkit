@@ -53,6 +53,6 @@ MUTButton.defaultProps = {
     disabled: false,
     border: false,
     type: 'basic',
-    size: 'medium',
+    size: 'small',
     variant: 'primary',
 }
