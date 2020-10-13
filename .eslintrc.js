@@ -23,11 +23,11 @@ module.exports = {
     },
     plugins: [
         "babel",
-        // "sort-imports-es6-autofix",
         "prettier",
         "react-hooks",
         "react",
         "unused-imports",
+        "css-modules"
     ],
     rules: {
         "no-duplicate-imports": 2,

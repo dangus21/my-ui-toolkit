@@ -52,6 +52,14 @@ $margin_sizes: (
     "jumbo_sq": 40px,
 );
 
+$vertical_spaces: (
+    "small": 1px,
+    "medium": 2px,
+    "large": 2px,
+    "extra": 3px,
+    "jumbo": 3px,
+);
+
 $radius_sizes: (
     "square": 0,
     "basic": 5px,
@@ -63,9 +71,21 @@ $radius_sizes: (
 }
 
 @mixin boxshadow {
-    box-shadow: 0 1px 3px map-get($colors, "darker_t");
+    box-shadow: 0 1px 3px map-get($colors, "darkest_t");
 }
 
 @mixin boxshadow_transition {
-    transition: box-shadow 200ms ease-in-out;
+    transition: box-shadow 350ms ease-in-out;
 }
+
+@function make_text_shadow($size, $color) {
+    @return 0 map-get($vertical_spaces, $size) map-get($vertical_spaces, $size) map-get($colors, $color);
+}
+
+@function make_gloss($lib, $color1, $color2) {
+    @return linear-gradient(
+        0deg,
+        darken(map-get($lib, $color1), 15) 0%,
+        darken(map-get($lib, $color2), 15) 100%
+    );
+} ;

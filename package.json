@@ -15,12 +15,12 @@
   },
   "scripts": {
     "start": "start-storybook -p 6006 -s public",
-    "build-sb": "build-storybook -s public -o build",
+    "build:sb": "build-storybook -s public -o build",
     "tsc": "tsc",
     "send": "np --no-yarn",
     "build2": "rimraf dist && webpack --mode production",
     "deploy": "gh-pages -d build",
-    "deploy-sb": "storybook-to-ghpages"
+    "deploy:sb": "storybook-to-ghpages"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
@@ -71,6 +71,8 @@
     "css-loader": "^4.3.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-babel": "^5.3.1",
+    "eslint-plugin-css-modules": "^2.11.0",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.21.3",
     "eslint-plugin-react-hooks": "4.1.2",

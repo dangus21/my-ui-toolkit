@@ -14,6 +14,9 @@ export default {
         password: {
             control: { disabled: false },
         },
+        fluid: {
+            control: { disabled: false },
+        },
         showText: { control: { disable: false } },
         radius: { control: { disable: false } },
         inputProps: {

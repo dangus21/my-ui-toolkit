@@ -1,12 +1,19 @@
 @import "src/Components/globals.scss";
 
 $button_colors: (
-    "primary": #137cec,
-    "secondary": #5d87b3,
-    "success": #59af5d,
-    "error": #da2525,
-    "warn": #e2a217,
+    "primary": #007bff,
+    "primary_dark": #005fc5,
+    "secondary": #4073b9,
+    "secondary_dark": #2c3691,
+    "success": #93d33f,
+    "success_dark": rgb(49, 143, 60),
+    "error": #ee2229,
+    "error_dark": #b30b0d,
+    "warn": #f89c27,
+    "warn_dark": #d6531b,
 );
+
+$gloss: false;
 
 .mut_button {
     border: none;
@@ -15,10 +22,11 @@ $button_colors: (
     display: inline-flex;
     align-items: center;
     line-height: 20px;
+    $b: &;
 
     @include boxshadow_transition;
 
-    &:hover{
+    &:hover {
         @include boxshadow;
     }
 
@@ -42,26 +50,41 @@ $button_colors: (
         &--small {
             padding: map-get($padding_sizes, "small");
             font-size: map-get($font_sizes, "small");
+            &[class*="glossy"] {
+                text-shadow: make_text_shadow("small", "darkest");
+            }
         }
 
         &--medium {
             padding: map-get($padding_sizes, "medium");
             font-size: map-get($font_sizes, "medium");
+            &[class*="glossy"] {
+                text-shadow: make_text_shadow("medium", "darkest");
+            }
         }
 
         &--large {
             padding: map-get($padding_sizes, "large");
             font-size: map-get($font_sizes, "large");
+            &[class*="glossy"] {
+                text-shadow: make_text_shadow("large", "darkest");
+            }
         }
 
         &--extra {
             padding: map-get($padding_sizes, "extra");
             font-size: map-get($font_sizes, "extra");
+            &[class*="mut_button"][class*="glossy"] {
+                text-shadow: make_text_shadow("extra", "darkest");
+            }
         }
 
         &--jumbo {
             padding: map-get($padding_sizes, "jumbo");
             font-size: map-get($font_sizes, "jumbo");
+            &[class*="glossy"] {
+                text-shadow: make_text_shadow("jumbo", "darkest");
+            }
         }
     }
 
@@ -96,6 +119,10 @@ $button_colors: (
             &:active {
                 background-color: darken(map-get($button_colors, "primary"), 5);
             }
+            &--glossy {
+                background-color: map-get($button_colors, "primary");
+                background: make_gloss($button_colors, "primary_dark", "primary");
+            }
         }
 
         &--secondary {
@@ -104,13 +131,22 @@ $button_colors: (
             &:active {
                 background-color: darken(map-get($button_colors, "secondary"), 5);
             }
+            &--glossy {
+                background-color: map-get($button_colors, "secondary");
+                background: make_gloss($button_colors, "secondary_dark", "secondary");
+            }
         }
 
         &--success {
-            color: map-get($colors, "white");
+            color: map-get($colors, "darkest");
             background-color: map-get($button_colors, "success");
             &:active {
                 background-color: darken(map-get($button_colors, "success"), 5);
+            }
+            &--glossy {
+                color: map-get($colors, "white");
+                background-color: map-get($button_colors, "success");
+                background: make_gloss($button_colors, "success_dark", "success");
             }
         }
 
@@ -120,13 +156,21 @@ $button_colors: (
             &:active {
                 background-color: darken(map-get($button_colors, "error"), 5);
             }
+            &--glossy {
+                background-color: map-get($button_colors, "error");
+                background: make_gloss($button_colors, "error_dark", "error");
+            }
         }
 
         &--warn {
-            color: map-get($colors, "black");
+            color: map-get($colors, "white");
             background-color: map-get($button_colors, "warn");
             &:active {
                 background-color: darken(map-get($button_colors, "warn"), 5);
+            }
+            &--glossy {
+                background-color: map-get($button_colors, "warn");
+                background: make_gloss($button_colors, "warn_dark", "warn");
             }
         }
     }

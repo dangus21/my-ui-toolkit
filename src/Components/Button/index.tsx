@@ -1,12 +1,13 @@
 import React, { ButtonHTMLAttributes } from 'react';
 import cn from 'clsx';
-import './styles.scss';
+import css from './styles.module.scss';
 
 export type IProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     children?: React.ReactNode,
     pointer?: boolean,
     disabled?: boolean,
     border?: boolean,
+    glossy?: boolean,
     type?: 'square' | 'basic' | 'round',
     size?: 'small' | 'medium' | 'large' | 'extra' | 'jumbo',
     variant?: 'primary' | 'secondary' | 'success' | 'error' | 'warn',
@@ -24,21 +25,23 @@ export const MUTButton = (props: IProps) => {
         type,
         size,
         variant,
+        glossy,
         ...otherProps
     } = props;
 
     return (
         <button
             className={cn(
-                base,
-                `${base}--type--${type}`,
-                `${base}--size--${size}`,
-                `${base}--variant--${variant}`,
+                css[base],
+                css[`${base}--type--${type}`],
+                css[`${base}--size--${size}`],
+                css[`${base}--variant--${variant}`],
                 {
-                    [`${base}--pointer`]: !disabled && pointer,
-                    [`${base}--border`]: !disabled && border,
-                    [`${base}--disabled--border`]: disabled && border,
-                    [`${base}--disabled`]: disabled,
+                    [css[`${base}--variant--${variant}--glossy`]]: glossy,
+                    [css[`${base}--pointer`]]: !disabled && pointer,
+                    [css[`${base}--border`]]: !disabled && border,
+                    [css[`${base}--disabled--border`]]: disabled && border,
+                    [css[`${base}--disabled`]]: disabled,
                 }
             )}
             {...otherProps}>
@@ -52,6 +55,7 @@ MUTButton.defaultProps = {
     pointer: false,
     disabled: false,
     border: false,
+    glossy: false,
     type: 'basic',
     size: 'small',
     variant: 'primary',

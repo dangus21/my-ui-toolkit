@@ -4,6 +4,7 @@
     display: inline-flex;
     border: 1px solid map-get($colors, "dark");
     background-color: map-get($colors, "white");
+    position: relative;
 
     input {
         width: 100%;
@@ -20,11 +21,15 @@
     }
 
     i {
+        position: absolute;
         display: flex;
         justify-content: center;
         align-items: center;
         color: map-get($colors, "dark");
         cursor: pointer;
+        right: 10px;
+        top: 50%;
+        transform: translate(0, -50%);
     }
 
     @include boxshadow_transition;
@@ -41,12 +46,6 @@
     }
     &--round--radius {
         border-radius: map-get($radius_sizes, "round");
-    }
-
-    &--password {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-columns: 1fr 30px;
     }
 
     &--fluid {
